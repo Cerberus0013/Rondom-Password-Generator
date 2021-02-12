@@ -72,6 +72,18 @@ header {
   clear: both;
 }
 
+#slider {
+  width: 100%
+}
+
+.criteria {
+  padding: 10px;
+}
+
+.criteria li {
+  padding: 10px;
+}
+
 .btn {
   border: none;
   background-color: hsl(360, 91%, 36%);
