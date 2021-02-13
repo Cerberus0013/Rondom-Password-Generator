@@ -11,11 +11,11 @@ const genPasswordElem = document.getElementById("generate");
 
 
 genPasswordElem.addEventListener("click", () => {
-  let length = +lengthElem.value; //needed it to be a number
-  let chexNumber = numbersElem.checked;
-  let  chexLowercase = lowercaseElem.checked;
-  let chexUppercase = uppercaseElem.checked;
-  let chexSpecial = specialElem.checked  
+  const length = +lengthElem.value; //needed it to be a number
+  const chexNumber = numbersElem.checked;
+  const  chexLowercase = lowercaseElem.checked;
+  const chexUppercase = uppercaseElem.checked;
+  const chexSpecial = specialElem.checked  
 
 // Get references to the #generate elemen
 // Write password to the #password input
@@ -47,7 +47,7 @@ function writePassword (number, upper, lower, special, length){
   const inputArr = [{ number }, { upper }, { lower }, { special }].filter(
     (item) => Object.values(item)[0]
   ); 
-//if not checked a warning message
+//if no boxes checked a warning message
   if (inputCount === 0) {
     return window.alert("Please select at least 1 password character option");
   }
@@ -64,7 +64,7 @@ function writePassword (number, upper, lower, special, length){
  }
  const finalPassword = generatePassword.slice(0, length); 
 
- return finalPassword;
+ return finalPassword
 } 
 
 
@@ -85,7 +85,7 @@ sliderNum.addEventListener("input", sameNum);
 
 function getSpecial(){
 specialset = "!@#$%^&*()-_+=<>"  
-  return specialset = Math.floor(Math.random() * specialset.length  )
+  return [specialset = Math.floor(Math.random() * specialset.length)]
 }  
 
 function getNumber(){
@@ -93,7 +93,7 @@ function getNumber(){
 }  
 
 function getUppercase(){
-  return String.fromCharCode(Math.floor(Math.random * 26)+ 97 );
+  return String.fromCharCode(Math.floor(Math.random * 26)+ 65);
 }  
 
 function getLowercase (){
