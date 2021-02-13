@@ -10,10 +10,7 @@ const specialElem = document.getElementById("special");
 const genPasswordElem = document.getElementById("generate");
 
 
-
-
-
-genPasswordElem.addEventListener("click", writePassword => {
+genPasswordElem.addEventListener("click", () => {
   let length = +lengthElem.value; //needed it to be a number
   let chexNumber = numbersElem.checked;
   let  chexLowercase = lowercaseElem.checked;
@@ -29,8 +26,8 @@ chexUppercase,
 chexSpecial,
 length
  );
- }
-); 
+ 
+ }); 
 
 
 //adding character generators to an obect containging easy to access single key: value pairs
@@ -44,12 +41,16 @@ const randoCharFunc = {
 
 function writePassword (number, upper, lower, special, length){
   let generatePassword = "";
-  inputCount = number + upper + lower + special + length;
+  inputCount = number + upper + lower + special;
   //console.log(' inputCount:' ,  inputCount  );
   //created objects out of criteria  elements to determine truthy/falsy; if the boxes where checked.
   const inputArr = [{ number }, { upper }, { lower }, { special }].filter(
     (item) => Object.values(item)[0]
   ); 
+//if not checked a warning message
+  if (inputCount === 0) {
+    return window.alert("Please select at least 1 password character option");
+  }
     
 
     //iterating over the count and variables
@@ -61,7 +62,7 @@ function writePassword (number, upper, lower, special, length){
      generatePassword += randoCharFunc[iterArr]();
    });
  }
- const finalPassword = generatePassword.slice (0, input) 
+ const finalPassword = generatePassword.slice (0, length) 
 
  return finalPassword;
 } 
@@ -71,7 +72,7 @@ const slider = document.getElementById("slider");
 const sliderNum = document.getElementById("sliderNumber");
 
 slider.addEventListener("input", sameNum);
-slidernum.addEventListener("input", sameNum);
+sliderNum.addEventListener("input", sameNum);
 
 //connecting function
 
