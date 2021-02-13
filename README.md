@@ -12,6 +12,8 @@ I started out with creating the checkboxes and slider. Then another connecting t
 
 First was checking to see if my elements where checked and assigning them varaibles to then be put into the actual password.Then I created an array of objects to check if the character options where checked (to find if thats true), then created a for loop to loop over the length of the password and input characters in.
 
+I was also able to increase the ratio of letters to numbers and symbols to 2:1 , by increasing my object array instances and changeing the order the where looped in
+
 For this project I had to do alot of research because this was all completely new to me: my books, stackoverflow, youtube tutorials and just general googling and then trial and error
 
 
