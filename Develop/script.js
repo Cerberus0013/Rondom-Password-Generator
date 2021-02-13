@@ -1,5 +1,5 @@
 // Assignment code here
-//window.alert("Welcome to your Password Generator");
+window.alert("Welcome to your Password Generator");
 
 const passwordTextElem = document.getElementById("password")
 const lengthElem = document.getElementById("length")
@@ -9,16 +9,12 @@ const lowercaseElem= document.getElementById("lowercase");
 const specialElem = document.getElementById("special");
 const genPasswordElem = document.getElementById("generate");
 
-//adding character generators to an obect containging easy to access single ket: value pairs
-
-var getRandoChars (){
-
-}
 
 
 
-genPassword.addEventListener("click", writePassword => {
-  let length = +lengthElem.value;
+
+genPasswordElem.addEventListener("click", writePassword => {
+  let length = +lengthElem.value; //needed it to be a number
   let chexNumber = numbersElem.checked;
   let  chexLowercase = lowercaseElem.checked;
   let chexUppercase = uppercaseElem.checked;
@@ -26,7 +22,7 @@ genPassword.addEventListener("click", writePassword => {
 
 // Get references to the #generate elemen
 // Write password to the #password input
-passwordTextElem.value = writePassword(
+passwordTextElem.innerText = writePassword(
 chexNumber,
 chexLowercase,
 chexUppercase,
@@ -36,6 +32,39 @@ length
  }
 ); 
 
+
+//adding character generators to an obect containging easy to access single key: value pairs
+
+const randoCharFunc = {
+  number: getNumber,
+  upper: getUppercase,
+  lower: getLowercase,
+  special: getSpecial
+}
+
+function writePassword (number, upper, lower, special, length){
+  let generatePassword = "";
+  inputCount = number + upper + lower + special + length;
+  //console.log(' inputCount:' ,  inputCount  );
+  //created objects out of criteria  elements to determine truthy/falsy; if the boxes where checked.
+  const inputArr = [{ number }, { upper }, { lower }, { special }].filter(
+    (item) => Object.values(item)[0]
+  ); 
+    
+
+    //iterating over the count and variables
+ for (let i = 0; i < length; i += inputCount) {
+   inputArr.forEach((input) => {
+     const iterArr = Object.keys(input)[0];
+     
+     
+     generatePassword += randoCharFunc[iterArr]();
+   });
+ }
+ const finalPassword = generatePassword.slice (0, input) 
+
+ return finalPassword;
+} 
 
 
 const slider = document.getElementById("slider");
@@ -53,7 +82,7 @@ slidernum.addEventListener("input", sameNum);
 }
 
 
-function getspecial(){
+function getSpecial(){
 specialset = "!@#$%^&*()-_+=<>"  
   return specialset = Math.floor(Math.random() * specialset.length  )
 }  
