@@ -85,7 +85,7 @@ sliderNum.addEventListener("input", sameNum);
 
 function getSpecial(){
 specialset = "!@#$%^&*()-_+=<>"  
-  return [specialset = Math.floor(Math.random() * specialset.length)]
+  return specialset [Math.floor(Math.random() * specialset.length)]
 }  
 
 function getNumber(){
@@ -93,11 +93,11 @@ function getNumber(){
 }  
 
 function getUppercase(){
-  return String.fromCharCode(Math.floor(Math.random * 26)+ 65);
+  return String.fromCharCode(Math.floor(Math.random() * 26)+ 97);
 }  
 
 function getLowercase (){
-  return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
+  return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
 }  
 
 
