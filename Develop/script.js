@@ -44,9 +44,18 @@ function writePassword (number, upper, lower, special, length){
   inputCount = number + upper + lower + special;
   //console.log(' inputCount:' ,  inputCount  );
   //created objects out of criteria  elements to determine truthy/falsy; if the boxes where checked.
-  const inputArr = [{ number }, { upper }, { lower }, { special }].filter(
-    (item) => Object.values(item)[0]
-  ); 
+  const inputArr = [
+    { upper },
+    { upper },
+    { number },
+    { lower },
+    { lower },
+    { special },
+  ].filter((item) => Object.values(item)[0]);
+  
+  //  const inputArr2 = [{ upper }, { lower }].filter(
+  //   (item) => Object.values(item)[0]
+  // ); 
 //if no boxes checked a warning message
   if (inputCount === 0) {
     return window.alert("Please select at least 1 password character option");
@@ -57,7 +66,9 @@ function writePassword (number, upper, lower, special, length){
  for (let i = 0; i < length; i += inputCount) {
    inputArr.forEach((input) => {
      const iterArr = Object.keys(input)[0];
-     
+        // for (let i = 0; i < length; i += inputCount) {
+        // inputArr2.forEach((input) => {
+        //       const iterArr2 = Object.keys(input)[0];
      
      generatePassword += randoCharFunc[iterArr]();
    });
