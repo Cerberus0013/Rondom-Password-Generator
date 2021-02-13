@@ -1,13 +1,13 @@
 // Assignment code here
 //window.alert("Welcome to your Password Generator");
 
-const password = document.getElementById("password")
-const length = document.getElementById("length")
-const numbers =document.getElementById("numbers")
-const uppercase = document.getElementById("uppercase");
-const lowercase= document.getElementById("lowercase");
-const special = document.getElementById("special");
-const genPassword = document.getElementById("generate");
+const passwordTextElem = document.getElementById("password")
+const lengthElem = document.getElementById("length")
+const numbersElem =document.getElementById("numbers")
+const uppercaseElem = document.getElementById("uppercase");
+const lowercaseElem= document.getElementById("lowercase");
+const specialElem = document.getElementById("special");
+const genPasswordElem = document.getElementById("generate");
 
 //adding character generators to an obect containging easy to access single ket: value pairs
 
@@ -17,45 +17,26 @@ var getRandoChars (){
 
 
 
-genPassword.addEventListener("click", writePassword);
+genPassword.addEventListener("click", writePassword => {
+  let length = +lengthElem.value;
+  let chexNumber = numbersElem.checked;
+  let  chexLowercase = lowercaseElem.checked;
+  let chexUppercase = uppercaseElem.checked;
+  let chexSpecial = specialElem.checked  
 
-
-
-// Get references to the #generate element
-var generateBtn = document.querySelector;
-
+// Get references to the #generate elemen
 // Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
-}
-
-
-function getspecial(){
-specialset = "!@#$%^&*()-_+=<>"
-  return specialset = Math.floor(Math.random() * specialset.length  )
-}
-
-function getNumber(){
-  return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
-}
-
-function getUppercase(){
-  return String.fromCharCode(Math.floor(Math.random * 26)+ 97 );
-}
-
-function getLowercase (){
-  return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
-}
+passwordTextElem.value = writePassword(
+chexNumber,
+chexLowercase,
+chexUppercase,
+chexSpecial,
+length
+ );
+ }
+); 
 
 
-
-
-
-
-//connecting slider to counter
 
 const slider = document.getElementById("slider");
 const sliderNum = document.getElementById("sliderNumber");
@@ -70,6 +51,31 @@ slidernum.addEventListener("input", sameNum);
   slider.value = value;
   sliderNum.value = value;
 }
+
+
+function getspecial(){
+specialset = "!@#$%^&*()-_+=<>"  
+  return specialset = Math.floor(Math.random() * specialset.length  )
+}  
+
+function getNumber(){
+  return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
+}  
+
+function getUppercase(){
+  return String.fromCharCode(Math.floor(Math.random * 26)+ 97 );
+}  
+
+function getLowercase (){
+  return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
+}  
+
+
+
+
+
+
+//connecting slider to counter
 
 
 
