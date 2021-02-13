@@ -1,6 +1,6 @@
 # Password Generator Code
 
-##  URL:
+##  URL https://cerberus0013.github.io/Rondom-Password-Generator/.
 
 ## Summary:
 
@@ -18,6 +18,10 @@ For this project I had to do alot of research because this was all completely ne
 
 ## ScreenShots
 
+![image](https://user-images.githubusercontent.com/76604281/107851462-62e49880-6dc7-11eb-8ceb-45b1e34ddf11.png)
+
+
+![image](https://user-images.githubusercontent.com/76604281/107851475-7132b480-6dc7-11eb-97ca-dd46d8d54629.png)
 
 
 
