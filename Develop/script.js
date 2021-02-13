@@ -2,7 +2,7 @@
 window.alert("Welcome to your Password Generator");
 
 const passwordTextElem = document.getElementById("password")
-const lengthElem = document.getElementById("length")
+const lengthElem = document.getElementById("sliderNumber")
 const numbersElem =document.getElementById("numbers")
 const uppercaseElem = document.getElementById("uppercase");
 const lowercaseElem= document.getElementById("lowercase");
@@ -62,7 +62,7 @@ function writePassword (number, upper, lower, special, length){
      generatePassword += randoCharFunc[iterArr]();
    });
  }
- const finalPassword = generatePassword.slice (0, length) 
+ const finalPassword = generatePassword.slice(0, length); 
 
  return finalPassword;
 } 
